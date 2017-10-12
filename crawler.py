@@ -3,6 +3,11 @@ from urllib.request import urlopen
 import math
 
 def getLinks(page):
+    """
+        TODO
+            retornar filtrado já, sem strings que comece com # ou /
+                dica : ver expressões regulares
+    """
     bsObj = BeautifulSoup(page.read(),'html.parser')
     return [ x.get('href') for x in bsObj.find_all('a') ]
 
@@ -13,16 +18,11 @@ class Node:
         self.urlsApontadas = urlsApontadas
 
     def printInfo(self):
+        print("URL NÓ")
         print(self.url)
+        print("URLS APONTADAS")
         for url in self.urlsApontadas:
             print(url)
-"""
-page = urlopen('http://www.google.com')
-bsObj = BeautifulSoup(page.read(),'html.parser')
-
-for link in bsObj.find_all('a'):
-    print(link.get('href'))
-"""
 
 """
 urls = [x.strip() for x in open(lista).readlines()]
@@ -30,10 +30,17 @@ urls = [x.strip() for x in open(lista).readlines()]
 
 nodes = []
 urls = [ 'https://google.com', 'https://facebook.com' ]
-for url in urls:
-    page = urlopen(url)
-    nodes.append(Node(url,getLinks(page)))    
-    inutil = math.cos(math.pi)
 
-for node in nodes:
-    node.printInfo()
+for url in urls:
+    """
+        TODO
+            corrigir erro que o urlopen dá em algumas páginas
+    """
+    page = urlopen(url)
+    nodes.append(Node(url,getLinks(page)))
+
+"""
+    TODO
+        escrever as informacoes dos nós em um arquivo
+            (primeiro tem que definir como vai ser o arquivo)
+"""
