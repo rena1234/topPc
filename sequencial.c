@@ -16,7 +16,7 @@ int calcula_indice_reinicio(bool visitados[], int indice_ultimo_reinicio){
    return i;
 }
 
-int busca_em_ordem(bool visitados[], NO sites[], int indice_inicio){
+int percorre_arvore(bool visitados[], NO sites[], int indice_inicio){
     int maliciosos_encontrados = 0;
     NO * no_atual = sites[indice_inicio];
     int indice_atual = indice_inicio;
@@ -31,7 +31,7 @@ int busca_em_ordem(bool visitados[], NO sites[], int indice_inicio){
             int indice_prox = no_atual->links[i];
             if(visitados[indice_prox]) continue;
             
-            maliciosos_encontrados += busca_em_ordem(bool visitados[], 
+            maliciosos_encontrados += percorre_arvore(bool visitados[], 
                     No sites[], indice_prox);
         }
     }
@@ -45,14 +45,14 @@ int main(){
     int maliciosos_encontrados = 0;
     int indice_ultimo_reinicio = 0;
 
-    maliciosos_encontrados += busca_em_ordem(visitados, sites, 0); 
+    maliciosos_encontrados += percorre_arvore(visitados, sites, 0); 
 
     while( maliciosos_encontrados < total_maliciosos ){
         while(indice_ultimo_reinicio < total_sites - 1){
             int indice_reinicio = calcula_indice_reinicio(visitados,
                     indice_ultimo_reinicio);
 
-            maliciosos_encontrados += busca_em_ordem(visitados, sites,
+            maliciosos_encontrados += percorre_arvore(visitados, sites,
                     indice_reinicio);
         }
                 
