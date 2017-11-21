@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-No * cria_site(bool malicioso, int links[], int num_links){
+No * cria_site(bool malicioso, int * links, int num_links){
     /*
      * Função testada
      */
