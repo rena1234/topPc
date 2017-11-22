@@ -49,6 +49,7 @@ bool p_busca_maliciosos(Ambiente * ambiente){
 
     omp_set_num_threads(num_threads);
     int maliciosos_encontrados[num_threads];
+    printf("%d\n", num_threads);
 
     for(int i = 0; i < num_threads; i++) maliciosos_encontrados[i] = 0;
 
@@ -64,6 +65,7 @@ bool p_busca_maliciosos(Ambiente * ambiente){
         int indice_no_base = base;
 
         int thread_num = omp_get_thread_num();
+        printf("%d\n", thread_num);
 
         maliciosos_encontrados[thread_num] += p_percorre_arvore(visitados, sites,
                 indice_no_base, base, limite); 

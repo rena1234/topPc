@@ -20,7 +20,7 @@ Ambiente * cria_ambiente(int num_sites, int num_threads){
   for( int j = 0; j < num_threads; j++){
       No ** sites = malloc( num_sites * sizeof(sites));
       vetores_sites[j] = sites;
-      for( int i = 0; i < num_sites; i++){
+      for( int i = 0; i < num_sites / num_threads; i++){
           int max_links = 100;
           int num_links = rand () % max_links;
           int * links = malloc(num_links * sizeof(int));
@@ -39,12 +39,7 @@ Ambiente * cria_ambiente(int num_sites, int num_threads){
     ambiente -> vetores_sites = vetores_sites;
     ambiente -> num_maliciosos = num_maliciosos;
     ambiente -> num_threads = num_threads;
-    No ** sites_t = *(ambiente -> vetores_sites);
-        int num_maliciosos_t = 0;
-    for(int i = 0; i < ambiente -> total_sites; i++)
-       if(sites_t[i] -> malicioso)
-           num_maliciosos_t++;
+    ambiente -> total_sites = num_sites;
 
-    printf("%d\n", num_maliciosos_t );
     return ambiente;
 }
