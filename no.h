@@ -8,6 +8,6 @@ typedef struct NO{
     bool malicioso;
 }No;
 
-No * cria_site(bool malicioso, int links[], int num_links);
+No * cria_site(bool malicioso, int * links, int num_links);
 
 #endif
