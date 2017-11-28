@@ -5,8 +5,8 @@
 
 int main(){
     
-    int num_sites = 10000;
-    int num_threads = 2;
+    int num_sites = 100000;
+    int num_threads = 1;
     Ambiente * ambiente = cria_ambiente(num_sites, num_threads);
 
     if(p_busca_maliciosos(ambiente))

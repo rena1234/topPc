@@ -1,6 +1,5 @@
 #include "no.h"
 #include <stdlib.h>
-#include <stdbool.h>
 
 No * cria_site(bool malicioso, int * links, int num_links){
     /*
@@ -12,6 +11,7 @@ No * cria_site(bool malicioso, int * links, int num_links){
     novo_site -> links = links;
     novo_site -> malicioso = malicioso;
     novo_site -> num_links = num_links;
+    novo_site -> visitado = false;
 
     return novo_site;
 }

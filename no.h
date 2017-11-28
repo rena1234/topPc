@@ -6,6 +6,7 @@ typedef struct NO{
     int * links;
     int num_links;
     bool malicioso;
+    bool visitado;
 }No;
 
 No * cria_site(bool malicioso, int * links, int num_links);

@@ -4,7 +4,7 @@
 #include "no.h"
 
 typedef struct AMBIENTE{
-    No *** vetores_sites;
+    No ** sites;
     int num_maliciosos;
     int total_sites;
     int num_threads;
